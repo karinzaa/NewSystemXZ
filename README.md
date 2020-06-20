@@ -1,0 +1,2 @@
+# NewSystemZ
+Theme for SystemZ.
