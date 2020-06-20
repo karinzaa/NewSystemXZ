@@ -1,0 +1,446 @@
+﻿<!-- Deverlop code nane 'AKIRA' 'アキラ' 
+                                                  
+                    *****                         
+                    ******             ********   
+       *********     *****           **********   
+ ****************     ********            ********
+ *******    ,****   ***********      *************
+        ******.     ***********,**  ***********   
+       ******           *****.            **      
+      *****         *****  ***         ***        
+   * *****                  ***    .**            
+  *****                      ***                  
+ .**.                         ***                 
+
+Ver. R3.5_2020(BETA)
+-->
+<!DOCTYPE html>
+<html ng-app="SystemZModule">
+<head>
+    <title>SystemZ</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#ffca00">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:300,400|Roboto:300,400,500,700|Material+Icons">
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAkCAYAAAD7PHgWAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAf5JREFUeNrMmNFxgzAMhoHLO4zABmGDkgmaDUomaEboCGxQRsgGpRPU3SDZwJmASj2lJ4jjWMYm1Z2POw7sD8n6JZMOw5BwS9O0gkubxLEG1juK3kBAPnASvB1hHDzWqTMDcxnBc2cC4lF69/VgH8F7DZsf4bTje4UJUAWG6z3hht93DIAh4RCmpHkLCZwRkPZfSMA9g1M+nl8JEuST9qeraVighYQo6L21T3ZNAWvLsygTPvp48IVDm8pMYXlWSScH73VwefJk602AVShAgnuZK6DOgBBeLYAr73zsmYZ1D18JtYuWSQbYm0FatKMe1jhHemkW4KsxQT4sX+waYk2VQzNvYnI9w/imhTXcH+7Ms4Hn+lhNAsJtJ95ErxWCglCOhJrCEboGtzdCX7tUERyZYwb72iuEUlH3MjuLY7RZCYl0JdBbtJMJcJ3Es6NAb0fPZyzT/qWtmDRsZs7VWqKghV27GgGSZvVz6CAK2lKFlBBQ3yp1cyyGCgQFzC1VSPoxKgagpAvKFw3xHCEWddS0UBF4/+nJGrXDUbi/AqSzw9dCIfZKkmYh7b0XofOjASuJxzO292LUYvRGFyLE+whwJ+qej75VhCfJNjDcX2vv8fdsFOIVOzOEtNZyClS0D3OXidLpH9aljPb9ZdQsB3bA1D0c8AY0giru/R8BBgD7IyyaGv4CoQAAAABJRU5ErkJggg==">
+    <!-- Material Design for Bootstrap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
+
+   
+
+    <style>
+        html, body {
+            height: 100%;
+            background-color: rgb(0, 0, 0);
+            color: rgb(199, 199, 199);
+        }
+
+        .bgimg {
+        background-position: center;
+        background-size: cover;
+        /*--- Change "ricadoOFF.gif" to "ricadoON.gif" 'Save' this file and press 'F5' SystemZ tab in your browser for enable Ricado Mode ---*/
+        background-image: url("ricadoOFF.gif");
+        /*-- background-image: url("https://acegif.com/wp-content/gifs/rainbow-frog-4.gif"); --*/
+        min-height: 100%;
+    }
+
+        .col, .col-md-6 {
+            margin-bottom: 10px;
+            padding: 0;
+        }
+
+        .gauge {
+            padding: 0 10px;
+        }
+
+            .gauge td {
+                color: white;
+                position: relative;
+                height: 110px;
+            }
+
+                .gauge td > canvas {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0px;
+                }
+
+                .gauge td > * {
+                    margin: 0;
+                    padding: 0;
+                    font-family: Oswald;
+                }
+
+                .gauge td > h3 {
+                    font-size: 26px;
+                    font-weight: 100;
+                    color: rgb(255, 255, 255);
+                }
+
+                .gauge td > h1 {
+                    font-size: 70px;
+                    color: rgb(255, 208, 0);
+                }
+
+                .gauge td > h2 {
+                    font-size: 35px;
+                    font-weight: 200;
+                    text-align: center;
+                    color: rgb(255, 255, 255);
+                }
+                .gauge td > h4 {
+                    font-size: 40px;
+                    font-weight: 200;
+                    text-align: left;
+                    color: rgba(255, 208, 0, 0.50);
+                }
+                h5 {
+                    font-size: 35px;
+                    font-weight: 200;
+                    text-align: center;
+                    font-family: Oswald;
+                    color: rgb(255, 208, 0);
+                }
+                h6 {
+                    font-size: 35px;
+                    font-weight: 200;
+                    text-align: center;
+                    font-family: Oswald;
+                    color: rgba(206, 177, 50, 0.5);
+                }
+                
+                h7 {
+                    font-size: 30px;
+                    font-weight: 200;
+                    text-align: center;
+                    font-family: Oswald;
+                    color: rgb(255, 255, 255);
+                }
+                h8 {
+                    font-size: 40px;
+                    text-align: center;
+                    font-family: Oswald;
+                    font-weight: 400;
+                    color: rgb(255, 208, 0);
+                }
+                h9 {
+                    font-size: 25px;
+                    font-weight: 200;
+                    text-align: center;
+                    font-family: Oswald;
+                    color: rgb(255, 255, 255);
+                }
+                a {
+                    font-weight: 200;
+                    text-align: center;
+                    font-family: Oswald;
+                }
+
+
+        .hardware {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .sensor {
+            display: flex;
+        }
+
+            .sensor > span:first-child {
+                flex-grow: 1;
+                font-weight: 200;
+                color: rgba(255, 208, 0, 0.80);
+            }
+
+            .sensor > span > span {
+                font-weight: 100;
+                color: rgb(255, 255, 255, 0.80);
+            }
+
+            .sensor > span:last-child {
+                flex-basis: 25%;
+                text-align: right;
+                font-weight: 200;
+                font-size: 14px;
+                color: rgb(255, 208, 0);
+            }
+    </style>
+
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.17/angular-filter.js"></script>
+
+</head>
+<body>
+    <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay bgimg"
+         ng-controller="SystemZ as ctrl">
+        <header class="bmd-layout-header">
+            <div class="nav nav-tabs bg-dark"
+                 style="background: #ffd000 !important;">
+                 <div class="nav-item"  style= "padding:15px 15px;">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAkCAYAAAD7PHgWAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAf5JREFUeNrMmNFxgzAMhoHLO4zABmGDkgmaDUomaEboCGxQRsgGpRPU3SDZwJmASj2lJ4jjWMYm1Z2POw7sD8n6JZMOw5BwS9O0gkubxLEG1juK3kBAPnASvB1hHDzWqTMDcxnBc2cC4lF69/VgH8F7DZsf4bTje4UJUAWG6z3hht93DIAh4RCmpHkLCZwRkPZfSMA9g1M+nl8JEuST9qeraVighYQo6L21T3ZNAWvLsygTPvp48IVDm8pMYXlWSScH73VwefJk602AVShAgnuZK6DOgBBeLYAr73zsmYZ1D18JtYuWSQbYm0FatKMe1jhHemkW4KsxQT4sX+waYk2VQzNvYnI9w/imhTXcH+7Ms4Hn+lhNAsJtJ95ErxWCglCOhJrCEboGtzdCX7tUERyZYwb72iuEUlH3MjuLY7RZCYl0JdBbtJMJcJ3Es6NAb0fPZyzT/qWtmDRsZs7VWqKghV27GgGSZvVz6CAK2lKFlBBQ3yp1cyyGCgQFzC1VSPoxKgagpAvKFw3xHCEWddS0UBF4/+nJGrXDUbi/AqSzw9dCIfZKkmYh7b0XofOjASuJxzO292LUYvRGFyLE+whwJ+qej75VhCfJNjDcX2vv8fdsFOIVOzOEtNZyClS0D3OXidLpH9aljPb9ZdQsB3bA1D0c8AY0giru/R8BBgD7IyyaGv4CoQAAAABJRU5ErkJggg==">
+                </div>
+                <!--<button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
+                    <span class="sr-only">Toggle drawer</span>
+                    <i class="material-icons">menu</i>
+                </button>-->
+                <div class="nav-item"  style= "padding: 0px 0px;" >
+                    <a class="nav-link text-dark"
+                       ng-class="{'active' : page == 'overview'}"
+                       ng-click="page='overview'">Dashboard</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link text-dark"
+                       ng-class="{'active' : page == 'sensors'}"
+                       ng-click="page='sensors'">Sensor</a>
+                </div>
+            </div>
+        </header>
+        <div id="dw-s2" class="bmd-layout-drawer bg-dark">
+            <header>
+                <a class="navbar-brand">LEVEL51 SystemZ</a>
+            </header>
+            <ul class="list-group">
+                <a class="list-group-item">Change Id</a>
+                <a class="list-group-item">Pause</a>
+            </ul>
+        </div>
+        <main class="bmd-layout-content">
+
+            
+            <div style="margin-bottom: 10px" ng-show="page=='overview'">
+              
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 gauge"
+                             ng-show="telemetry.CPU != null">
+
+                            <table style="width: 100% ;margin-top: 10%">
+                                <tr>
+                                    <td style="width: 50%">
+                                        <h4>CPU</h4>
+                                        <h3>
+                                            {{telemetry.CPU}} {{telemetry.CPUClock / 1000 | number: 1}} GHz
+                                        </h3>
+                                        <h1>
+                                            {{telemetry.CPUTempAverage | number: 0}} c ํ
+                                        </h1>
+                                    </td>
+                                    
+                                    <td valign="bottom">
+                                        
+                                        <canvas sz-gauge binding="telemetry.CPUTempAverage"
+                                                color="rgba( 133, 133, 133, 1.0 )"
+                                                bg-color="rgba( 0, 113, 197, 0.1 )"
+                                                style="width: 100%">
+                                        </canvas>
+                                        <canvas sz-gauge binding="telemetry.CPULoad * 1"
+                                                color="rgba( 0, 113, 197, 0.5 )"
+                                                bg-color="rgba( 0, 113, 197, 0.0 )"
+                                                style="width: 100%">
+                                        </canvas>
+                                        <h2>
+                                            {{sensors.map['/intelcpu/0/clock/1'].SensorValue | number:0}} MHz
+                                        </h2>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <div class="col-md-6  gauge"
+                             ng-show="telemetry.GPU != null">
+
+                            <table style="width: 100% ;margin-top: 10%">
+                                <tr>
+                                    <td style="width: 50%">
+                                        <h4>GPU</h4>
+                                        <h3>
+                                            {{telemetry.GPU}}
+                                        </h3>
+                                        <h1>
+                                            {{telemetry.GPUTemp | number: 0}} c ํ
+                                        </h1>
+                                    </td>
+                                    <td valign="bottom">
+                                        <canvas sz-gauge binding="telemetry.GPUTemp"
+                                                color="rgba( 133, 133, 133, 1.0 )"
+                                                bg-color="rgba( 55, 255, 0, 0.1 )"
+                                                style="width: 100%">
+                                        </canvas>
+                                        <canvas sz-gauge binding="telemetry.GPULoad * 1"
+                                                color="rgba( 48, 150, 21, 0.5 )"
+                                                bg-color="rgba( 0, 87, 23, 0.0 )"
+                                                style="width: 100%">
+                                        </canvas>
+                                        <h2>
+                                            {{sensors.map['/nvidiagpu/0/smalldata/2'].SensorValue | number:0}} MHz
+                                        </h2>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+                        <div class="col-md-6  gauge" valign="center"
+                             ng-show="fpsProcess.ProcessName != null">
+
+                            <table style="width: 100%;margin-top: 10%">
+                                <tr>
+                                    <td style="width: 50%">
+                                        <h4>FPS</h4>
+                                        <h3>
+                                            {{fpsProcess.ProcessName}} <span class="text-muted"> Frame Time (avg)</span>
+                                        </h3>
+                                        <h1>
+                                            {{1000 / fpsProcess.FrameTimeAvg | number: 2}} ms
+                                        </h1>
+                                    </td>
+                                    <td valign="bottom">
+                                        <canvas sz-gauge binding="1000 / fpsProcess.FrameTimeAvg"
+                                                color="rgba( 255, 99, 132, 1.0 )"
+                                                bg-color="rgba( 255, 99, 132, 0.1 )"
+                                                style="width: 100%"></canvas>
+                                        <h2>
+                                            {{1000 / fpsProcess.FrameTimeAvg | number: 0}} fps
+                                        </h2>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+                    </div>
+                        <h6 ng-show="telemetry.CPU != null" style="width:100%; height: 50%; margin-top: 40px">RAM
+                            <h9>
+                                Used
+                            </h9> 
+                                <h7> 
+                                    {{sensors.map['/ram/data/0'].SensorValue | number:0}} GB
+                                </h7>
+                                
+                                <h7>
+                                   /
+                                </h7> 
+                                    <h7> 
+                                        {{sensors.map['/ram/data/0'].SensorValue + sensors.map['/ram/data/1'].SensorValue | number:0}} GB
+                                    </h7>
+                                    <h8>
+                                        {{sensors.map['/ram/load/0'].SensorValue | number:0}} %
+                                    </h8>
+                        </h6>
+                </div>
+            </div>
+
+        <canvas sz-timeseries watch="telemetry" timerange="60"
+            animationduration="1000" animationeasing="linear"
+            linetension="0" 
+            gridlinecolor="#333"
+            min="0" max="100" stepsize="10" ticks font="Oswald"
+            style="width:100%; height: 55%; margin-top: 40px">
+
+        <series source="telemetry.CPUTempAverage"
+                label="CPUTemp"
+                background-color="transparent"
+                border-color="rgba(0, 113, 197, 1.0)"
+                border-width="2" point-radius="0"></series>
+        <series source="telemetry.GPUTemp"
+                label="GPUTemp"
+                background-color="transparent"
+                border-color="rgba(118, 185, 0, 1.0)"
+                border-width="2" point-radius="0"></series>
+
+        <series source="sensors.map['/ram/load/0'].SensorValue"
+                label="FPS"
+                background-color="rgba(206, 177, 50, 0.25)"
+                border-color="rgba(206, 177, 50, 1.0)"
+                border-width="2" point-radius="0"></series>
+        <series source="fpsProcess.Fps"
+                label="FPS"
+                background-color="rgba(255, 99, 132, 0.25)"
+                border-color="rgba(255, 99, 132, 1.0)"
+                border-width="2" point-radius="0"></series>
+        <series source="telemetry.CPULoad"
+                label="CPULoad"
+                background-color="rgba(66, 135, 245, 0.25)"
+                border-color="rgba(117, 182, 255, 1.0)"
+                border-width="2" point-radius="0"></series>
+        <series source="telemetry.GPULoad"
+                label="GPULoad"
+                background-color="rgba(0, 255, 110, 0.25)"
+                border-color="rgba(194, 255, 158, 1.0)"
+                border-width="2" point-radius="0"></series>
+
+       
+
+
+        
+    </canvas>
+
+    <div class="container" ng-show="page=='sensors'">
+
+        <div class="col">
+            <div class="col-md-20" ng-repeat="g in sensors">
+                <div class="card text-white bg-dark">
+                    <div class="card"></div>
+                        <div ng-repeat="hw in g.Hardware" class="hardware">
+                            <h5 class="card-title">
+                                {{hw.Name}}
+                            </h5>
+
+                            <div ng-repeat="s in hw.Sensors | orderBy:'SensorType'" class="sensor">
+                                <span>{{s.SensorName}}<br/>
+                                    <span>{{s.SensorType}}</span>
+                                    <span>{{s.Id}}</span>
+                                </span>
+
+
+                                <span ng-if="s.SensorType=='Load'">
+                                    {{s.SensorValue | number: 2}} %
+                                </span>
+                                <span ng-if="s.SensorType=='Power'">
+                                    {{s.SensorValue | number: 2}} W
+                                </span>
+                                <span ng-if="s.SensorType=='SmallData'">
+                                    {{s.SensorValue | number: 2}} MB
+                                </span>
+                                <span ng-if="s.SensorType=='Data'">
+                                    {{s.SensorValue | number: 2}} GB
+                                </span>
+                                <span ng-if="s.SensorType=='Clock'">
+                                    {{s.SensorValue | number: 2}} MHz
+                                </span>
+                                <span ng-if="s.SensorType=='Temperature'">
+                                    {{s.SensorValue | number: 2}} c ํ
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+</div>
+
+    <script>
+
+        $(document).ready(function () {
+            $('body').bootstrapMaterialDesign();
+        });
+
+    </script>
+    <script src="js/systemz.js"></script>
+</body>
+</html>
