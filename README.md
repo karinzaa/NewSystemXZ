@@ -5,9 +5,9 @@
 # NewSystemZ
 
 
-### Theme for SystemZ. </n>
+### Theme for SystemZ and SystemXZ. </n>
 
-* This is theme for `SystemZ`.</n>
+* This is theme for `SystemZ` and `SystemXZ`.</n>
 
 ![Imgur](https://i.imgur.com/O7dsEF9.png)![Imgur](https://i.imgur.com/tpQoKue.png)
 
