@@ -12,19 +12,19 @@
   *****                      ***                  
  .**.                         ***                 
 
-Ver. R3.5_2020(BETA)
+Ver. 2.0(BETA)
 -->
 <!DOCTYPE html>
 <html ng-app="SystemZModule">
 <head>
-    <title>SystemZ</title>
+    <title>SystemXZ</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="theme-color" content="#ffca00">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Material Design for Bootstrap fonts and icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:300,400|Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:300,400|Roboto:300,400,500,700|Athiti:200,300,400,500,700|Material+Icons">
     <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAkCAYAAAD7PHgWAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAf5JREFUeNrMmNFxgzAMhoHLO4zABmGDkgmaDUomaEboCGxQRsgGpRPU3SDZwJmASj2lJ4jjWMYm1Z2POw7sD8n6JZMOw5BwS9O0gkubxLEG1juK3kBAPnASvB1hHDzWqTMDcxnBc2cC4lF69/VgH8F7DZsf4bTje4UJUAWG6z3hht93DIAh4RCmpHkLCZwRkPZfSMA9g1M+nl8JEuST9qeraVighYQo6L21T3ZNAWvLsygTPvp48IVDm8pMYXlWSScH73VwefJk602AVShAgnuZK6DOgBBeLYAr73zsmYZ1D18JtYuWSQbYm0FatKMe1jhHemkW4KsxQT4sX+waYk2VQzNvYnI9w/imhTXcH+7Ms4Hn+lhNAsJtJ95ErxWCglCOhJrCEboGtzdCX7tUERyZYwb72iuEUlH3MjuLY7RZCYl0JdBbtJMJcJ3Es6NAb0fPZyzT/qWtmDRsZs7VWqKghV27GgGSZvVz6CAK2lKFlBBQ3yp1cyyGCgQFzC1VSPoxKgagpAvKFw3xHCEWddS0UBF4/+nJGrXDUbi/AqSzw9dCIfZKkmYh7b0XofOjASuJxzO292LUYvRGFyLE+whwJ+qej75VhCfJNjDcX2vv8fdsFOIVOzOEtNZyClS0D3OXidLpH9aljPb9ZdQsB3bA1D0c8AY0giru/R8BBgD7IyyaGv4CoQAAAABJRU5ErkJggg==">
     <!-- Material Design for Bootstrap CSS -->
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
@@ -44,7 +44,8 @@ Ver. R3.5_2020(BETA)
         background-size: cover;
         /*--- Change "ricadoOFF.gif" to "ricadoON.gif" 'Save' this file and press 'F5' SystemZ tab in your browser for enable Ricado Mode ---*/
         background-image: url("ricadoOFF.gif");
-        /*-- background-image: url("https://acegif.com/wp-content/gifs/rainbow-frog-4.gif"); --*/
+        /*--- background-image: url('/deck/images/bg.jpg'); ---*/
+        /*--- background-image: url("https://acegif.com/wp-content/gifs/rainbow-frog-4.gif"); ---*/
         min-height: 100%;
     }
 
@@ -107,7 +108,7 @@ Ver. R3.5_2020(BETA)
                     color: rgb(255, 208, 0);
                 }
                 h6 {
-                    font-size: 35px;
+                    font-size: 34px;
                     font-weight: 200;
                     text-align: center;
                     font-family: Oswald;
@@ -115,21 +116,21 @@ Ver. R3.5_2020(BETA)
                 }
                 
                 h7 {
-                    font-size: 30px;
+                    font-size: 28px;
                     font-weight: 200;
                     text-align: center;
                     font-family: Oswald;
                     color: rgb(255, 255, 255);
                 }
                 h8 {
-                    font-size: 40px;
+                    font-size: 34px;
                     text-align: center;
                     font-family: Oswald;
                     font-weight: 400;
                     color: rgb(255, 208, 0);
                 }
                 h9 {
-                    font-size: 25px;
+                    font-size: 20px;
                     font-weight: 200;
                     text-align: center;
                     font-family: Oswald;
@@ -153,20 +154,25 @@ Ver. R3.5_2020(BETA)
 
             .sensor > span:first-child {
                 flex-grow: 1;
-                font-weight: 200;
-                color: rgba(255, 208, 0, 0.80);
+                font-weight: 400;
+                font-size: 18px;
+                font-family: Roboto;
+                color: rgb(255, 208, 0);
             }
 
             .sensor > span > span {
-                font-weight: 100;
+                font-weight: 300;
+                font-size: 12px;
+                font-family: Roboto;
                 color: rgb(255, 255, 255, 0.80);
             }
 
             .sensor > span:last-child {
-                flex-basis: 25%;
+                flex-basis: 35%;
                 text-align: right;
-                font-weight: 200;
-                font-size: 14px;
+                font-weight: 400;
+                font-size: 18px;
+                font-family: Roboto;
                 color: rgb(255, 208, 0);
             }
     </style>
@@ -204,6 +210,11 @@ Ver. R3.5_2020(BETA)
                        ng-class="{'active' : page == 'sensors'}"
                        ng-click="page='sensors'">Sensor</a>
                 </div>
+                <!--<div class="nav-item">
+                    <a class="nav-link text-dark"
+                       ng-class="{'active' : page == 'deck'}"
+                       ng-click="page='deck'">Deck</a>
+                </div>-->
             </div>
         </header>
         <div id="dw-s2" class="bmd-layout-drawer bg-dark">
@@ -258,7 +269,7 @@ Ver. R3.5_2020(BETA)
 
                         </div>
                         <div class="col-md-6  gauge"
-                             ng-show="telemetry.GPU != null">
+                             ng-show="sensors.map['/nvidiagpu/0/smalldata/2'].SensorValue != null">
 
                             <table style="width: 100% ;margin-top: 10%">
                                 <tr>
@@ -291,7 +302,7 @@ Ver. R3.5_2020(BETA)
 
                         </div>
 
-                        <div class="col-md-6  gauge" valign="center"
+                        <div class="col-md-6 gauge" valign="center"
                              ng-show="fpsProcess.ProcessName != null">
 
                             <table style="width: 100%;margin-top: 10%">
@@ -320,22 +331,23 @@ Ver. R3.5_2020(BETA)
                         </div>
 
                     </div>
-                        <h6 ng-show="telemetry.CPU != null" style="width:100%; height: 50%; margin-top: 40px">RAM
+                    <td>
+                        <h6 ng-show="sensors.map['/ram/load/0'].SensorValue != null" style="width:100%; height: 50%; margin-top: 40px">RAM
                             <h9>
                                 Used
                             </h9> 
                                 <h7> 
-                                    {{sensors.map['/ram/data/0'].SensorValue | number:0}} GB
+                                    {{sensors.map['/ram/data/0'].SensorValue | number:1}}
                                 </h7>
                                 
                                 <h7>
                                    /
                                 </h7> 
                                     <h7> 
-                                        {{sensors.map['/ram/data/0'].SensorValue + sensors.map['/ram/data/1'].SensorValue | number:0}} GB
+                                        {{sensors.map['/ram/data/0'].SensorValue + sensors.map['/ram/data/1'].SensorValue | number:1}} GB
                                     </h7>
                                     <h8>
-                                        {{sensors.map['/ram/load/0'].SensorValue | number:0}} %
+                                        {{sensors.map['/ram/load/0'].SensorValue | number:1}} %
                                     </h8>
                         </h6>
                 </div>
@@ -380,10 +392,6 @@ Ver. R3.5_2020(BETA)
                 border-color="rgba(194, 255, 158, 1.0)"
                 border-width="2" point-radius="0"></series>
 
-       
-
-
-        
     </canvas>
 
     <div class="container" ng-show="page=='sensors'">
@@ -430,6 +438,11 @@ Ver. R3.5_2020(BETA)
             </div>
         </div>
     </div>
+
+
+    <!--<div style="margin-bottom: 10px" ng-show="page=='deck'">
+            
+    </div>-->
 
 </main>
 </div>
