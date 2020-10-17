@@ -18,7 +18,7 @@
 ![Imgur](https://i.imgur.com/71cfsqy.png)![Imgur](https://i.imgur.com/TCCDvgd.png)
 
 ### Project Infomation. </n>
-* This project use `SystemX`.</n>
+* This project base on `SystemX`.</n>
 
 >***Require `SystemX`***
 [link to SystemX!](https://level51pc.com/systemx)
